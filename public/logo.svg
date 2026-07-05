@@ -1,0 +1,23 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#1C0140" flood-opacity="0.6"/>
+    </filter>
+    <linearGradient id="gradBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2a0160" />
+      <stop offset="100%" stop-color="#1C0140" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Hexagon Base with slight gradient (No white background outside of this!) -->
+  <path d="M256 32L450 144V368L256 480L62 368V144L256 32Z" fill="url(#gradBg)"/>
+  
+  <!-- Academic Cap Top -->
+  <path d="M256 160 L390 235 L256 310 L122 235 Z" fill="#5284FF"/>
+  
+  <!-- Academic Cap Bottom 3D effect -->
+  <path d="M142 265 V325 L256 390 L370 325 V265 L256 330 Z" fill="#9FCDFF"/>
+  
+  <!-- Lightning Bolt -->
+  <path d="M290 120 L180 290 H260 L230 410 L350 240 H270 L290 120 Z" fill="#FFFFFF" filter="url(#shadow)"/>
+</svg>

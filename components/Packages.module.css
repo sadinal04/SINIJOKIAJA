@@ -115,11 +115,9 @@
 .p1CardHighlight {
   border-color: rgba(82, 132, 255, 0.3);
   background: linear-gradient(135deg, rgba(82, 132, 255, 0.05), rgba(159, 205, 255, 0.08));
-  grid-column: span 2;
 }
 
 .p1CardIcon {
-  font-size: 2rem;
   flex-shrink: 0;
   width: 52px;
   height: 52px;
@@ -129,6 +127,12 @@
   background: white;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(82, 132, 255, 0.1);
+  color: var(--color-primary);
+}
+
+.p1CardIcon svg {
+  width: 26px;
+  height: 26px;
 }
 
 .p1CardContent {
@@ -213,13 +217,28 @@
   color: white;
 }
 
-.p2Card:hover .p2CardIcon {
-  filter: grayscale(0);
+.p2CardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  color: var(--color-primary);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(82, 132, 255, 0.1);
+  transition: all 0.2s ease;
 }
 
-.p2CardIcon {
-  font-size: 2.2rem;
-  transition: all 0.2s ease;
+.p2CardIcon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.p2Card:hover .p2CardIcon {
+  background: white;
+  color: var(--color-primary);
+  transform: scale(1.1);
 }
 
 .p2CardName {
@@ -293,7 +312,20 @@
 }
 
 .p3CardIcon {
-  font-size: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: all var(--transition-med);
+}
+
+.p3CardIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.p3Card:hover .p3CardIcon {
+  color: white;
 }
 
 .p3CardContent {
@@ -357,10 +389,6 @@
     grid-template-columns: 1fr;
   }
 
-  .p1CardHighlight {
-    grid-column: span 1;
-  }
-
   .p2Grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -393,7 +421,11 @@
   .p1CardIcon {
     width: 44px;
     height: 44px;
-    font-size: 1.6rem;
+  }
+
+  .p1CardIcon svg {
+    width: 22px;
+    height: 22px;
   }
 
   .p2Grid {
