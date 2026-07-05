@@ -1,0 +1,298 @@
+.services {
+  background: var(--color-bg);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+/* Package Card Base */
+.pkgCard {
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-med);
+  cursor: default;
+}
+
+.pkgCard:hover {
+  transform: translateY(-8px);
+}
+
+/* Card Color Variants */
+.card_primary {
+  background: white;
+  border: 1.5px solid rgba(82, 132, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(82, 132, 255, 0.1);
+}
+
+.card_primary:hover {
+  box-shadow: 0 24px 60px rgba(82, 132, 255, 0.2);
+  border-color: rgba(82, 132, 255, 0.35);
+}
+
+.card_dark {
+  background: var(--color-dark);
+  border: 1.5px solid rgba(82, 132, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(28, 1, 64, 0.15);
+}
+
+.card_dark:hover {
+  box-shadow: 0 24px 60px rgba(28, 1, 64, 0.25);
+}
+
+.card_dark .pkgLabel,
+.card_dark .pkgTitle,
+.card_dark .pkgDesc,
+.card_dark .pkgServiceItem,
+.card_dark .pkgPriceFrom,
+.card_dark .pkgPriceValue {
+  color: white;
+}
+
+.card_dark .pkgDesc,
+.card_dark .pkgPriceFrom {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card_dark .pkgServiceItem svg {
+  stroke: var(--color-light-blue);
+}
+
+.card_dark .pkgNumber {
+  color: rgba(255, 255, 255, 0.12);
+}
+
+.card_dark .pkgIcon {
+  background: rgba(82, 132, 255, 0.2);
+  color: var(--color-light-blue);
+}
+
+.card_dark .pkgBtn {
+  background: white;
+  color: var(--color-dark);
+}
+
+.card_dark .pkgBtn:hover {
+  background: var(--color-light-blue);
+  color: var(--color-dark);
+}
+
+.card_light {
+  background: linear-gradient(135deg, #e8f3fc, #d5eaf8);
+  border: 1.5px solid rgba(82, 132, 255, 0.12);
+  box-shadow: 0 8px 32px rgba(82, 132, 255, 0.08);
+}
+
+.card_light:hover {
+  box-shadow: 0 24px 60px rgba(82, 132, 255, 0.15);
+}
+
+/* Number */
+.pkgNumber {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 5rem;
+  font-weight: 900;
+  color: rgba(82, 132, 255, 0.08);
+  line-height: 1;
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Icon */
+.pkgIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(82, 132, 255, 0.1);
+  border-radius: var(--radius-md);
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+  transition: all var(--transition-med);
+}
+
+.pkgCard:hover .pkgIcon {
+  background: var(--color-primary);
+  color: white;
+  transform: rotate(-5deg) scale(1.05);
+}
+
+.card_dark:hover .pkgIcon {
+  background: rgba(82, 132, 255, 0.4);
+  color: white;
+  transform: rotate(-5deg) scale(1.05);
+}
+
+/* Label */
+.pkgLabel {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 0.4rem;
+}
+
+/* Title */
+.pkgTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+/* Description */
+.pkgDesc {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+/* Services List */
+.pkgServices {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+  flex: 1;
+}
+
+.pkgServiceItem {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.pkgServiceItem svg {
+  flex-shrink: 0;
+  stroke: var(--color-primary);
+}
+
+/* Footer */
+.pkgFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(82, 132, 255, 0.12);
+}
+
+.pkgPrice {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.pkgPriceFrom {
+  font-size: 0.7rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.pkgPriceValue {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: var(--color-primary);
+}
+
+/* Button */
+.pkgBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.2rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.pkgBtn:hover {
+  background: var(--color-primary-dark);
+  transform: translateX(3px);
+}
+
+/* ═══ RESPONSIVE ═══ */
+
+/* Tablet landscape: 3 kolom masih muat tapi lebih compact */
+@media (max-width: 1024px) {
+  .grid {
+    gap: 1.1rem;
+  }
+
+  .pkgCard {
+    padding: 1.75rem;
+  }
+
+  .pkgNumber {
+    font-size: 4rem;
+  }
+}
+
+/* Tablet portrait: 1 kolom, tapi side-by-side jika cukup ruang */
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .pkgCard {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .pkgNumber {
+    font-size: 3.5rem;
+    top: 0.75rem;
+    right: 1rem;
+  }
+
+  .pkgTitle {
+    font-size: 1.3rem;
+  }
+
+  .pkgFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .pkgBtn {
+    width: 100%;
+    justify-content: center;
+  }
+}

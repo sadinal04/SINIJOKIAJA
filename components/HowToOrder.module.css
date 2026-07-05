@@ -1,0 +1,361 @@
+/* =========================================
+   HOW TO ORDER – v3
+   Strategi garis: satu ::before di .iconsRow
+   yang otomatis sejajar dengan pusat semua ikon.
+   ========================================= */
+
+.section {
+  background: var(--color-bg);
+}
+
+/* Grid 4 kolom untuk 4 step */
+.stepsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 3.5rem;
+  position: relative;
+}
+
+/* ───────────────────────────────────────────
+   GARIS HORIZONTAL — satu garis tunggal
+   di belakang semua ikon.
+   Top = tinggi badge (≈28px) + gap (16px) + setengah iconRing (48px) = 92px
+   Left / Right = setengah lebar kolom (12.5%)
+   ─────────────────────────────────────────── */
+.stepsRow::before {
+  content: "";
+  position: absolute;
+  top: 92px;          /* pusat ikon secara vertikal */
+  left: calc(100% / 8);    /* tengah kolom pertama */
+  right: calc(100% / 8);   /* tengah kolom terakhir */
+  height: 2px;
+  background: rgba(82, 132, 255, 0.15);
+  z-index: 0;
+}
+
+/* Overlay animasi fill kiri→kanan */
+.stepsRow.rowVisible::before {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-light-blue) 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% 100%;
+  animation: lineSweep 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+             lineShimmer 3s 1.8s ease infinite;
+}
+
+@keyframes lineSweep {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes lineShimmer {
+  0%   { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Step wrapper ── */
+.stepWrapper {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* entrance animation */
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.stepVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Step card ── */
+.stepCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Number badge */
+.stepNum {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  background: rgba(82, 132, 255, 0.08);
+  border: 1px solid rgba(82, 132, 255, 0.2);
+  border-radius: 999px;
+  padding: 0.2rem 0.7rem;
+  /* tinggi seragam supaya semua ikon di level yang sama */
+  line-height: 1.6;
+}
+
+/* Icon ring — 96×96, centered in column */
+.iconRing {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  flex-shrink: 0;
+}
+
+.iconInner {
+  position: absolute;
+  inset: 8px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(82, 132, 255, 0.14);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  z-index: 2;
+}
+
+.iconInner svg {
+  width: 44px;
+  height: 44px;
+  color: var(--color-dark);
+}
+
+.stepCard:hover .iconInner {
+  transform: scale(1.07);
+  box-shadow: 0 14px 36px rgba(82, 132, 255, 0.25);
+}
+
+/* Rotating dashed ring */
+.dashedRing {
+  position: absolute;
+  inset: 0;
+  animation: rotateSlow 14s linear infinite;
+  z-index: 1;
+}
+
+@keyframes rotateSlow {
+  to { transform: rotate(360deg); }
+}
+
+.stepCard:hover .dashedRing {
+  animation-duration: 4s;
+}
+
+/* Arrow dot between steps (desktop only) */
+.arrowDot {
+  position: absolute;
+  top: 92px;             /* sama dengan garis */
+  right: -10px;          /* sedikit keluar dari kolom ke kanan */
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease 1.4s;
+}
+
+.rowVisible .stepWrapper:not(:last-child) .arrowDot {
+  opacity: 1;
+}
+
+.arrowDot svg {
+  color: var(--color-primary);
+}
+
+/* Title */
+.stepTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  line-height: 1.25;
+}
+
+/* Description */
+.stepDesc {
+  font-size: 0.83rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  max-width: 180px;
+}
+
+/* ── CTA Box ── */
+.ctaBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: var(--color-dark);
+  border-radius: var(--radius-xl);
+  padding: 2.5rem 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaBoxGlow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 240px;
+  height: 240px;
+  background: radial-gradient(circle, rgba(82, 132, 255, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.ctaBoxLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaBoxTitle {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: white;
+}
+
+.ctaBoxSubtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.55;
+}
+
+.ctaButton {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+  animation: bounceWA 3s ease infinite;
+}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+
+/* Tablet landscape (≤1024px): 4 kolom masih muat, sedikit kompres */
+@media (max-width: 1024px) {
+  .stepDesc {
+    max-width: 150px;
+    font-size: 0.8rem;
+  }
+
+  .stepTitle {
+    font-size: 0.95rem;
+  }
+}
+
+/* Tablet portrait (≤768px): 2×2 grid, garis pseudo dihapus */
+@media (max-width: 768px) {
+  .stepsRow {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  /* Hapus garis horizontal karena layout 2×2 */
+  .stepsRow::before {
+    display: none;
+  }
+
+  .stepWrapper {
+    background: white;
+    border: 1px solid rgba(82, 132, 255, 0.1);
+    border-radius: var(--radius-xl);
+    padding: 1.75rem 1rem;
+    box-shadow: 0 4px 20px rgba(82, 132, 255, 0.07);
+    transition: opacity 0.55s ease, transform 0.55s ease,
+                box-shadow 0.3s ease;
+  }
+
+  .stepWrapper:hover {
+    box-shadow: 0 10px 32px rgba(82, 132, 255, 0.14);
+    transform: translateY(-3px) !important;
+  }
+
+  .stepCard {
+    padding: 0;
+  }
+
+  .stepDesc {
+    max-width: 100%;
+  }
+
+  .arrowDot {
+    display: none;
+  }
+}
+
+/* Mobile (≤480px): 1 kolom, layout horizontal per card */
+@media (max-width: 480px) {
+  .stepsRow {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .stepWrapper {
+    flex-direction: row;
+    align-items: center;
+    padding: 1.25rem 1.25rem;
+    border-radius: var(--radius-lg);
+  }
+
+  .stepCard {
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1rem;
+  }
+
+  .stepNum {
+    display: none; /* nomor sudah tersirat dari urutan */
+  }
+
+  .iconRing {
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+  }
+
+  .iconInner svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .stepDesc {
+    font-size: 0.8rem;
+  }
+
+  /* CTA */
+  .ctaBox {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .ctaBoxTitle {
+    font-size: 1.25rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    justify-content: center;
+  }
+}

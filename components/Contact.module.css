@@ -1,0 +1,209 @@
+.contact {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8f3fd 0%, #eff7fe 60%, #ddeefb 100%);
+}
+
+.bgDecor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(82, 132, 255, 0.07) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(159, 205, 255, 0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* Admin Grid */
+.adminGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Admin Card Base */
+.adminCard {
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: center;
+  transition: all var(--transition-med);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Card Variants */
+.card_primary {
+  background: white;
+  border: 1.5px solid rgba(82, 132, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(82, 132, 255, 0.08);
+}
+
+.card_primary:hover {
+  box-shadow: 0 20px 56px rgba(82, 132, 255, 0.15);
+  transform: translateY(-6px);
+}
+
+.card_dark {
+  background: var(--color-dark);
+  border: 1.5px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 32px rgba(28, 1, 64, 0.18);
+}
+
+.card_dark:hover {
+  box-shadow: 0 20px 56px rgba(28, 1, 64, 0.28);
+  transform: translateY(-6px);
+}
+
+.card_dark .adminName {
+  color: white;
+}
+
+.card_dark .adminNumber {
+  color: var(--color-light-blue);
+}
+
+.card_dark .adminDesc {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Avatar */
+.adminAvatar {
+  position: relative;
+  width: 96px;
+  height: 96px;
+}
+
+.adminAvatarText {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  color: white;
+  letter-spacing: 0.05em;
+  position: absolute;
+  inset: 0;
+}
+
+.onlineDot {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  background: #25d366;
+  border-radius: 50%;
+  border: 3px solid white;
+  animation: pulse-glow 2.5s ease infinite;
+}
+
+.card_dark .onlineDot {
+  border-color: var(--color-dark);
+}
+
+/* Info */
+.adminInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.adminName {
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--color-dark);
+}
+
+.adminNumber {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.adminDesc {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* Admin Button */
+.adminBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 2rem;
+  background: #25d366;
+  color: white;
+  border-radius: var(--radius-md);
+  font-family: var(--font-outfit), sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all var(--transition-med);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+  width: 100%;
+  justify-content: center;
+}
+
+.adminBtn:hover {
+  background: #1ebe59;
+  transform: scale(1.02);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+/* Note */
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1.25rem 1.5rem;
+  background: rgba(82, 132, 255, 0.06);
+  border: 1px solid rgba(82, 132, 255, 0.15);
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.note svg {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.note strong {
+  color: var(--color-dark);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .adminGrid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .adminCard {
+    padding: 2rem 1.5rem;
+  }
+}

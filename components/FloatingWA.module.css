@@ -1,0 +1,105 @@
+.floatingBtn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+  color: white;
+}
+
+.floatingBtn:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 12px 36px rgba(37, 211, 102, 0.55);
+  background: #1ebe59;
+}
+
+.floatingBtn:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-8px);
+  pointer-events: all;
+}
+
+/* Pulse ring */
+.pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: #25d366;
+  opacity: 0.4;
+  animation: waRipple 2.5s ease-out infinite;
+}
+
+@keyframes waRipple {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  70% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Icon */
+.icon {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(0);
+  background: var(--color-dark);
+  color: white;
+  padding: 0.4rem 0.85rem;
+  border-radius: 8px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 6px solid transparent;
+  border-left-color: var(--color-dark);
+}
+
+@media (max-width: 480px) {
+  .floatingBtn {
+    bottom: 1.25rem;
+    right: 1.25rem;
+    width: 54px;
+    height: 54px;
+  }
+
+  .tooltip {
+    display: none;
+  }
+}
