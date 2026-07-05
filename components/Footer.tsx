@@ -30,7 +30,7 @@ export default function Footer() {
           <div className={styles.brand}>
             <a href="#hero" className={styles.logo}>
               <div className={styles.footerLogoIcon}>
-                <Image src="/logo.png" alt="SINIJOKIAJA" width={34} height={34} />
+                <Image src="/logo.svg" alt="SINIJOKIAJA" width={34} height={34} />
               </div>
               <span className={styles.logoText}>SINIJOKIAJA</span>
             </a>
