@@ -5,7 +5,7 @@
    ========================================= */
 
 .section {
-  background: var(--color-bg);
+  background: #f8fbff;
 }
 
 /* Grid 4 kolom untuk 4 step */
@@ -131,7 +131,12 @@
 
 .stepCard:hover .iconInner {
   transform: scale(1.07);
-  box-shadow: 0 14px 36px rgba(82, 132, 255, 0.25);
+  box-shadow: 0 14px 36px rgba(255, 71, 133, 0.25);
+  border: 2px solid var(--color-accent);
+}
+
+.stepCard:hover .iconInner svg {
+  color: var(--color-accent);
 }
 
 /* Rotating dashed ring */

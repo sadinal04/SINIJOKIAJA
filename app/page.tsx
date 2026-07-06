@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Packages from "@/components/Packages";
+import Testimonials from "@/components/Testimonials";
 import HowToOrder from "@/components/HowToOrder";
 import Contact from "@/components/Contact";
 import FloatingWA from "@/components/FloatingWA";
@@ -18,6 +19,7 @@ export default function Home() {
         <Services />
         <Packages />
         <HowToOrder />
+        <Testimonials />
         <Contact />
       </main>
       <Footer />
