@@ -162,7 +162,7 @@ export default function Packages() {
         <div id="paket-3" className={styles.packageBlock}>
           <div className={styles.packageHeader}>
             <div className={styles.packageHeaderLeft}>
-              <span className={`badge badge-primary ${styles.pkgBadge}`}>Paket 3</span>
+              <span className={`badge badge-pink ${styles.pkgBadge}`}>Paket 3</span>
               <h3 className={styles.packageTitle}>Jasa Revisi & Akademik</h3>
               <p className={styles.packageSubtitle}>
                 Perbaiki dan sempurnakan dokumen akademikmu agar siap dikumpulkan.

@@ -307,8 +307,8 @@
 }
 
 .p3Card:hover .p3CardIconWrap {
-  background: var(--color-primary);
-  box-shadow: 0 8px 24px rgba(82, 132, 255, 0.3);
+  background: var(--color-accent);
+  box-shadow: 0 8px 24px rgba(255, 71, 133, 0.3);
 }
 
 .p3CardIcon {

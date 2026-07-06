@@ -134,7 +134,7 @@
 }
 
 .link:hover {
-  color: var(--color-light-blue);
+  color: var(--color-accent);
   transform: translateX(4px);
 }
 
@@ -160,6 +160,18 @@
 .madeWith {
   display: flex;
   align-items: center;
+  gap: 0.35rem;
+}
+
+.madeWithLink {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s ease;
+}
+
+.madeWithLink:hover {
+  color: var(--color-light-blue);
 }
 
 /* Responsive */

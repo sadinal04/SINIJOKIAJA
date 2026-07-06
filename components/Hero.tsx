@@ -157,12 +157,12 @@ export default function Hero() {
             <circle cx="430" cy="370" r="22" fill="#5284FF" opacity="0.12"/>
 
             {/* Stars/sparkles */}
-            <path d="M280 80 L284 90 L294 90 L286 97 L289 107 L280 101 L271 107 L274 97 L266 90 L276 90 Z" fill="#5284FF" opacity="0.5"/>
+            <path d="M280 80 L284 90 L294 90 L286 97 L289 107 L280 101 L271 107 L274 97 L266 90 L276 90 Z" fill="#ff4785" opacity="0.65"/>
             <path d="M140 140 L142 146 L148 146 L143 150 L145 156 L140 152 L135 156 L137 150 L132 146 L138 146 Z" fill="#9FCDFF" opacity="0.7"/>
             <path d="M390 190 L392 196 L398 196 L393 200 L395 206 L390 202 L385 206 L387 200 L382 196 L388 196 Z" fill="#1C0140" opacity="0.3"/>
 
             {/* Dots pattern */}
-            <circle cx="200" cy="120" r="4" fill="#5284FF" opacity="0.3"/>
+            <circle cx="200" cy="120" r="4" fill="#ff4785" opacity="0.4"/>
             <circle cx="215" cy="108" r="3" fill="#9FCDFF" opacity="0.4"/>
             <circle cx="230" cy="120" r="4" fill="#5284FF" opacity="0.25"/>
             <circle cx="245" cy="108" r="3" fill="#9FCDFF" opacity="0.35"/>
