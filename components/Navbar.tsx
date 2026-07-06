@@ -70,7 +70,7 @@ export default function Navbar() {
           <a href="#hero" className={styles.logo} onClick={closeMenu}>
             <div className={styles.logoIcon}>
               <Image
-                src="/logo.png"
+                src="/logo2.png"
                 alt="SINIJOKIAJA Logo"
                 width={32}
                 height={32}
@@ -131,7 +131,7 @@ export default function Navbar() {
       <div className={`${styles.mobileMenu} ${menuOpen ? styles.menuOpen : ""}`}>
         <div className={styles.mobileMenuHeader}>
           <div className={styles.mobileLogo}>
-            <Image src="/logo.png" alt="SINIJOKIAJA" width={28} height={28} />
+            <Image src="/logo2.png" alt="SINIJOKIAJA" width={28} height={28} />
             <span className={styles.logoText} style={{ fontFamily: "var(--font-outfit)" }}>SINIJOKIAJA</span>
           </div>
           <button className={styles.closeBtn} onClick={closeMenu} aria-label="Close menu">
