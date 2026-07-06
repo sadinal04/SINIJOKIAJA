@@ -22,6 +22,26 @@ export default function Navbar() {
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 20);
+
+    const sections = navLinks.map((link) => link.href.substring(1));
+    let current = "";
+
+    for (const section of sections) {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        // If the section is near the top of the viewport
+        if (rect.top <= 200 && rect.bottom >= 100) {
+          current = section;
+        }
+      }
+    }
+
+    if (current) {
+      setActiveSection(current);
+    } else if (window.scrollY < 100) {
+      setActiveSection("hero");
+    }
   }, []);
 
   useEffect(() => {
